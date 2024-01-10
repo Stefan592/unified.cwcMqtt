@@ -1,0 +1,38 @@
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%; 
+    margin: 0%;
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+tr {
+    border: 1px solid black ;
+}
+
+tr p {
+    margin: 2px;
+}
+
+tr.info {
+    background-color: #fcfcfd;
+    color: #495057;
+}
+
+tr.warning {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+tr.error {
+    background-color: #f8d7da;
+    color: #58151c;
+}
+

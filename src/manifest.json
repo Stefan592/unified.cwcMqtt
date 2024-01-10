@@ -1,0 +1,81 @@
+{
+	"$schema": "./../etc/manifest_Schema.json",
+	"mver": "1.2.0",
+	"control": {
+		"identity": {
+			"name": "MQTT client",
+			"version": "0.0.1",
+			"displayname": "MQTT Client",
+			"type": "guid://9B17AF0A-30DB-4137-AC85-AF489671D293",
+			"start": "./control/index.html",
+			"icon": "./control/img/icon.ico"
+		},
+		"metadata": {
+			"author": "Stefan Preuß",
+			"keywords": [
+				"Stefan Preuß",
+				"MQTT"
+			]
+		},
+		"contracts": {
+			"api": {
+				"methods": {
+					"subscribe": {
+						"parameters": {
+							"topic": {
+								"type": "string"
+							}
+						},
+						"description": "Subscribe to an MQTT topic.",
+						"return": {
+							"type": "null"
+						}
+					},
+					"unsubscribe": {
+						"parameters": {
+							"topic": {
+								"type": "string"
+							}
+						},
+						"description": "Unsubscribe an already subcribet topic.",
+						"return": {
+							"type": "null"
+						}
+					},
+					"publish": {
+						"parameters": {
+							"topic": {
+								"type": "string"
+							},
+							"message": {
+								"type": "string"
+							}
+						},
+						"description": "Publish to an MQTT topic.",
+						"return": {
+							"type": "null"
+						}
+					}
+				},
+				"events": {
+					"onMessage": {
+						"arguments": {
+							"data": {
+								"type": "string"
+							}
+						},
+						"description": "New message arrives."
+					}
+				},
+				"properties": {
+					"Url": {
+						"type": "string",
+						"default": "127.0.0.1:9001"
+					}			
+				}
+			}
+		},
+		"types": {}
+	}
+}
+

@@ -1,0 +1,9 @@
+# Ignore artifacts:
+dist
+release
+node_modules
+test
+
+# Ignore files:
+webcc.min.js
+*.d.ts
