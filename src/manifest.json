@@ -1,5 +1,5 @@
 {
-	"$schema": "./../etc/manifest_Schema.json",
+	"$schema": "./../build/manifest_Schema.json",
 	"mver": "1.2.0",
 	"control": {
 		"identity": {

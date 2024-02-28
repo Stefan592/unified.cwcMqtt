@@ -26,6 +26,6 @@ jobs:
               id: artifact
               uses: actions/upload-artifact@v4
               with:
-                name: drelease
+                name: CustomWebControl
                 path: |
                   release/*.zip

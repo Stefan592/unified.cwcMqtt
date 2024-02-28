@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "compile": "npx webpack && npm run createDist",
-    "createDist": "node etc/createDist.js",
-    "createRelease": "node etc/createRelease.js",
+    "createDist": "node build/createDist.js",
+    "createRelease": "node build/createRelease.js",
     "release": "npm run compile && npm run createRelease",
     "watch": "tsc-watch --onSuccess \"npm run compile\""
   },

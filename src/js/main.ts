@@ -2,7 +2,6 @@
  * MQTT custom web control for WinCC Unififed
  *
  * @author   Stefan Preuß
- * @copyright Stefan Preuß 2024
  */
 /*global WebCC */
 
@@ -52,11 +51,6 @@ WebCC.start(
 
             log.append('error', 'Connection to CWC failed! Logging enabled.');
 
-            mqttOptions.broker = 'mqtt.smarthome';
-            await mqtt.connect(mqttOptions);
-            await mqtt.subscribe('test');
-            await mqtt.publish('test', 'lsls');
-  
         }
 
         
@@ -92,7 +86,7 @@ WebCC.start(
         // Define proberties
         properties: {
             Url: '',
-            Debug: true
+            Debug: false
         }
     },
     // placeholder to include additional Unified dependencies
