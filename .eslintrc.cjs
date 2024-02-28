@@ -19,7 +19,8 @@ module.exports = {
     rules:{
         '@stylistic/ts/indent': ['error', 4],
         semi: 'error',
-        quotes: ['error', 'single', {'allowTemplateLiterals': true }]
+        quotes: ['error', 'single', {'allowTemplateLiterals': true }],
+        'no-console': 'error'
     }
 };
 

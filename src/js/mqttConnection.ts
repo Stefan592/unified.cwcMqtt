@@ -14,18 +14,26 @@ export class Mqtt {
     }
 
 
+
     public async connect(options:MqttOptions) : Promise<void>{
 
         return new Promise<void>((resolve) => {
-    
+
+            const connectionCheck = setTimeout(() => {
+                this.log.append('error', `Couldn't connect to host: ${this.client.options.host} in ${this.client.options.connectTimeout} seconds!`);
+            }, this.client.options.connectTimeout);
+
             mqtt.connectAsync(`ws://${options.broker}:${options.port}`)
                 .then(a => {
+
+                    clearTimeout(connectionCheck);
+
                     this.client = a;
                     this.log.append('info', `Connected to broker: ${this.client.options.protocol}://${this.client.options.host}`);
                     resolve();
                 })
                 .catch(e =>{
-                    console.log(e);
+                    this.log.append('error', e);
                 });
         });
     }

@@ -6,10 +6,12 @@ html {
 body {
     height: 100%; 
     margin: 0%;
+    background-color: white;
 }
 
 table {
     width: 100%; 
+    height: 100%;
     border-collapse: collapse;
 }
 
@@ -17,21 +19,21 @@ tr {
     border: 1px solid black ;
 }
 
-tr p {
+p {
     margin: 2px;
 }
 
-tr.info {
+.info {
     background-color: #fcfcfd;
     color: #495057;
 }
 
-tr.warning {
+.warning {
     background-color: #fff3cd;
     color: #664d03;
 }
 
-tr.error {
+.error {
     background-color: #f8d7da;
     color: #58151c;
 }

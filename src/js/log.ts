@@ -16,7 +16,12 @@ export class Logging {
     test: 'info' | 'warning' | 'error', msg:string     */
     public append(level: 'info' | 'warning' | 'error', msg: string) {
 
-        if (!this.enable) return;
+        if (level == 'error' && !this.enable){
+            this.enable = true;
+        }
+        else if (!this.enable){
+            return;
+        }
 
         const template = `
             <tr class="${level}">
@@ -28,7 +33,7 @@ export class Logging {
         this.table.insertAdjacentHTML('beforeend', template);
 
         while (this.table.children.length > this.maxRows) {
-            if (this.table.children[1]) this.table.removeChild(this.table.children[1]);
+            if (this.table.firstChild) this.table.removeChild(this.table.firstChild);
         }
     }
 }

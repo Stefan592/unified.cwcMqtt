@@ -1,0 +1,31 @@
+on: push
+
+jobs:
+    compile:
+        name: TypeScript Tests
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              id: setup-node
+              uses: actions/setup-node@v4
+
+            - name: Install Dependencies
+              id: npm-install
+              run: npm install
+
+            - name: Release
+              id: release
+              run: npm release
+
+            - name: Store artifact
+              id: artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: drelease
+                path: |
+                  release/*.zip

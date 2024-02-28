@@ -71,7 +71,11 @@
 					"Url": {
 						"type": "string",
 						"default": "127.0.0.1:9001"
-					}			
+					},
+					"Debug"	: {
+						"type": "boolean",
+						"default": false
+					}	
 				}
 			}
 		},
