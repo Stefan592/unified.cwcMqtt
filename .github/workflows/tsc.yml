@@ -2,7 +2,7 @@ on: push
 
 jobs:
     compile:
-        name: TypeScript Tests
+        name: TypeScript
         runs-on: ubuntu-latest
 
         steps:
@@ -20,7 +20,7 @@ jobs:
 
             - name: Release
               id: release
-              run: npm release
+              run: npm run release
 
             - name: Store artifact
               id: artifact
