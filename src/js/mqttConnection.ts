@@ -23,7 +23,7 @@ export class Mqtt {
                 this.log.append('error', `Couldn't connect to host: ${this.client.options.host} in ${this.client.options.connectTimeout} seconds!`);
             }, this.client.options.connectTimeout);
 
-            mqtt.connectAsync(`ws://${options.broker}:${options.port}`)
+            mqtt.connectAsync(`${options.broker}:${options.port}`)
                 .then(a => {
 
                     clearTimeout(connectionCheck);
@@ -76,5 +76,5 @@ export class Mqtt {
 
 export interface MqttOptions {
     broker: string,
-    port: number   
+    port: number
 }

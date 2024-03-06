@@ -72,6 +72,11 @@
 						"type": "string",
 						"default": "127.0.0.1:9001"
 					},
+					"Secure": {
+						"type": "boolean",
+						"default": true,
+						"description": "Websocket with TLS."
+					},
 					"Debug"	: {
 						"type": "boolean",
 						"default": false

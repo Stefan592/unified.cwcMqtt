@@ -11,7 +11,7 @@ import { Mqtt, MqttOptions } from './mqttConnection';
 
 const mqttOptions:MqttOptions = {
     broker: '',
-    port: 9001
+    port: 9001,
 };
 
 const log = new Logging(document.getElementById('table') as HTMLTableElement);
@@ -25,16 +25,25 @@ WebCC.start(
             if (!WebCC.isDesignMode) {
 
 
+                if (WebCC.Properties['Secure']){
+                    mqttOptions.broker = "wss://";
+                }
+                else {
+                    mqttOptions.broker = "ws://";
+                }
+                
+                
+
                 if (WebCC.Properties['Url']){
 
                     const url = WebCC.Properties['Url'] as string;
                     const urlParts = url.split(':');
 
                     if (urlParts.length == 1){
-                        mqttOptions.broker = url;
+                        mqttOptions.broker += url;
                     }
                     else if (urlParts.length == 2) {
-                        mqttOptions.broker = urlParts[0];
+                        mqttOptions.broker += urlParts[0];
                         mqttOptions.port = Number(urlParts[1]);
                     }
                     else {
@@ -86,7 +95,8 @@ WebCC.start(
         // Define proberties
         properties: {
             Url: '',
-            Debug: false
+            Debug: false,
+            Secure: true
         }
     },
     // placeholder to include additional Unified dependencies
