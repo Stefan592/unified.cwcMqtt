@@ -7,6 +7,10 @@ body {
     height: 100%; 
     margin: 0%;
     background-color: white;
+    background-image: url('../img/logo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 table {

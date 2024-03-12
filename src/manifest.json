@@ -70,12 +70,17 @@
 				"properties": {
 					"Url": {
 						"type": "string",
-						"default": "127.0.0.1:9001"
+						"default": "ws://127.0.0.1:9001"
 					},
-					"Secure": {
-						"type": "boolean",
-						"default": true,
-						"description": "Websocket with TLS."
+					"Username": {
+						"type": "string",
+						"default": "",
+						"description": "Username for authentication"
+					},
+					"Password": {
+						"type": "string",
+						"default": "",
+						"description": "Password for authentication"
 					},
 					"Debug"	: {
 						"type": "boolean",
