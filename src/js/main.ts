@@ -23,7 +23,10 @@ WebCC.start(
 
             if (!WebCC.isDesignMode) {
 
-                
+                if (WebCC.Properties['Debug']){
+                    log.enable = WebCC.Properties['Debug'] as boolean;
+                }
+
                 if (WebCC.Properties['Username']){
                     mqttOptions.user = WebCC.Properties['Username'] as string;
                 }
@@ -33,19 +36,8 @@ WebCC.start(
                 }
 
                 if (WebCC.Properties['Url']){
-
-                    const url = WebCC.Properties['Url'] as string;
-                    const urlParts = url.split(':');
-
-                    if (urlParts.length == 3){
-                        mqttOptions.broker = `${urlParts[0]}:${urlParts[1]}:${urlParts[2]}`;
-                    }
-                    else {
-                        log.append('error', `Url do not match with the requirements. URL: ${url}`);
-                    }
-
-                    if (mqttOptions.broker) await mqtt.connect(mqttOptions);
-                                        
+                    mqttOptions.broker = WebCC.Properties['Url'] as string;
+                    await mqtt.connect(mqttOptions);               
                 }
 
             }
